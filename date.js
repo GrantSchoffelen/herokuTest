@@ -54,8 +54,5 @@ exec('git add -A',
 
 
 
-setInterval(function(){
-  console.log(today.format('YYYY, DD, MM'), "hit")
-  dayCommit(today)
-}, 1000);
+
 
