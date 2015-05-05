@@ -3,19 +3,16 @@ var exec = require('exec-then');
 var schedule = require('node-schedule');
 var moment = require('moment');
 
-var today = moment("2014, 9, 1");
-var setDate = moment("2014, 8, 3")
+var today = moment();
+var setDate = moment(); 
 
-// var j = schedule.scheduleJob(today.format(), function(){
-//    pushChanges(day)
-//    day = today.format("YYYY, DD, MM").subtract(1, 'days')    
-// });
+var j = schedule.scheduleJob(today.format(), function(){
+   dayCommit(today)
+      
+});
 
 function dayCommit(date){ 
-  if(setDate > date ){
-    console.log('done')
-    return 
-  }
+
   fs.writeFile("newfile.js", date.format("YYYY, DD, MM"), function(err) {
     if(err) {
       console.log('err1')
@@ -49,8 +46,6 @@ exec('git add -A',
 });
 
 });
-
-today = today.subtract(1, "days")
 
 }
 
