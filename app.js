@@ -67,12 +67,13 @@ var setDate = moment();
 
 var j = schedule.scheduleJob(today.format(), function(){
    dayCommit(today)
+   dayCommit(today)
       
 });
 
 function dayCommit(date){ 
 
-  fs.writeFile("newfile.js", date.format("YYYY, DD, MM"), function(err) {
+  fs.writeFile("newfile.js", date.format(), function(err) {
     if(err) {
       console.log('err1')
         return console.log(err);
@@ -105,6 +106,8 @@ exec('git add -A',
 });
 
 });
+
+today = moment()
 
 }
 
