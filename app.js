@@ -63,12 +63,12 @@ app.use(function(err, req, res, next) {
 var rule0 = new schedule.RecurrenceRule();
 rule0.dayOfWeek = [0, new schedule.Range(0, 6)];
 rule0.hour = 23;
-rule0.minute = 12;
+rule0.minute = 14;
 
 var rule1 = new schedule.RecurrenceRule();
 rule1.dayOfWeek = [0, new schedule.Range(0, 6)];
 rule1.hour = 23;
-rule1.minute = 13;
+rule1.minute = 15;
 
 
 
