@@ -62,8 +62,8 @@ app.use(function(err, req, res, next) {
 
 var rule0 = new schedule.RecurrenceRule();
 rule0.dayOfWeek = [0, new schedule.Range(0, 6)];
-rule0.hour = 23;
-rule0.minute = [17, 18, 19] ;
+rule0.hour = 23
+rule0.minute = [22, 23, 24, 25, 26, 27] ;
 
 // var rule1 = new schedule.RecurrenceRule();
 // rule1.dayOfWeek = [0, new schedule.Range(0, 6)];
