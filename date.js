@@ -6,6 +6,7 @@ var moment = require('moment');
 
 var today = moment()
 function dayCommit(date){ 
+  console.log('hit job')
 
   fs.writeFile("newfile.js", date.format(), function(err) {
     if(err) {
