@@ -74,11 +74,12 @@ rule0.minute = [22, 23, 24, 25, 26, 27] ;
 
 
 var j = schedule.scheduleJob(rule0, function(){
-  var today = moment();
+  // var today = moment();
+  console.log('hit')
 
-  console.log(today.format("YYYY-MM-DD HH:mm"))
+  // console.log(today.format("YYYY-MM-DD HH:mm"))
 
-   dayCommit(today)
+   // dayCommit(today)
 });
 
 // var g = schedule.scheduleJob(rule1, function(){
