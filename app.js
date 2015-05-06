@@ -63,12 +63,12 @@ app.use(function(err, req, res, next) {
 var rule0 = new schedule.RecurrenceRule();
 rule0.dayOfWeek = [0, new schedule.Range(0, 6)];
 rule0.hour = 23;
-rule0.minute = 14;
+rule0.minute = [17, 18, 19] ;
 
-var rule1 = new schedule.RecurrenceRule();
-rule1.dayOfWeek = [0, new schedule.Range(0, 6)];
-rule1.hour = 23;
-rule1.minute = 15;
+// var rule1 = new schedule.RecurrenceRule();
+// rule1.dayOfWeek = [0, new schedule.Range(0, 6)];
+// rule1.hour = 23;
+// rule1.minute = 15;
 
 
 
@@ -81,13 +81,13 @@ var j = schedule.scheduleJob(rule0, function(){
    dayCommit(today)
 });
 
-var g = schedule.scheduleJob(rule1, function(){
-  var today = moment();
+// var g = schedule.scheduleJob(rule1, function(){
+//   var today = moment();
 
-  console.log(today.format("YYYY-MM-DD HH:mm"))
+//   console.log(today.format("YYYY-MM-DD HH:mm"))
 
-   dayCommit(today)
-});
+//    dayCommit(today)
+// });
 
 
 function dayCommit(date){ 
