@@ -60,18 +60,20 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
+var counter = 0
 
 var today = moment();
 var setDate = moment(); 
 
 var j = schedule.scheduleJob(today.format(), function(){
    dayCommit(today)
-   dayCommit(today)
-      
 });
 
 function dayCommit(date){ 
+  if(counter >5){
+    counter = 0
+    return
+  }
 
   fs.writeFile("newfile.js", date.format(), function(err) {
     if(err) {
@@ -108,6 +110,8 @@ exec('git add -A',
 });
 
 today = moment()
+counter++
+dayCommit(today)
 
 }
 
