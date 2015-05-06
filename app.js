@@ -63,32 +63,19 @@ app.use(function(err, req, res, next) {
 var rule0 = new schedule.RecurrenceRule();
 rule0.dayOfWeek = [0, new schedule.Range(0, 6)];
 rule0.hour = 23
-rule0.minute = [22, 23, 24, 25, 26, 27] ;
-
-// var rule1 = new schedule.RecurrenceRule();
-// rule1.dayOfWeek = [0, new schedule.Range(0, 6)];
-// rule1.hour = 23;
-// rule1.minute = 15;
+rule0.minute = [22, 23, 24, 25, 26] ;
 
 
 
 
 var j = schedule.scheduleJob(rule0, function(){
-  // var today = moment();
-  console.log('hit')
+  var today = moment();
 
-  // console.log(today.format("YYYY-MM-DD HH:mm"))
+  console.log(today.format("YYYY-MM-DD HH:mm"))
 
-   // dayCommit(today)
+   dayCommit(today)
 });
 
-// var g = schedule.scheduleJob(rule1, function(){
-//   var today = moment();
-
-//   console.log(today.format("YYYY-MM-DD HH:mm"))
-
-//    dayCommit(today)
-// });
 
 
 function dayCommit(date){ 
@@ -129,15 +116,7 @@ exec('git add -A',
 
 
 }
-// var numFunction = function(){setInterval(function(){
-//   if(counter>5){
-//     return 
-//   }
-//   console.log(today.format('YYYY, DD, MM'), "hit")
-//   dayCommit(today)
-//   counter++
-// }, 1000);
-// }
+
 
 
 module.exports = app;
