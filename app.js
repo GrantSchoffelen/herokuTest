@@ -9,8 +9,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var fs = require('fs');
 var exec = require('exec-then');
-var schedule = require('node-schedule');
 var moment = require('moment');
+var schedule = require('node-schedule');
 
 var app = express();
 
@@ -60,20 +60,19 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var counter = 0
+var rule = new schedule.RecurrenceRule();
+rule.dayOfWeek = [0, new schedule.Range(0, 6)];
+rule.hour = 23;
+rule.minute = 8;
 
 var today = moment();
 var setDate = moment(); 
 
-var j = schedule.scheduleJob(today.format(), function(){
+var j = schedule.scheduleJob(rule, function(){
    dayCommit(today)
 });
 
 function dayCommit(date){ 
-  if(counter >5){
-    counter = 0
-    return
-  }
 
   fs.writeFile("newfile.js", date.format(), function(err) {
     if(err) {
@@ -109,11 +108,17 @@ exec('git add -A',
 
 });
 
-today = moment()
-counter++
-dayCommit(today)
 
 }
+// var numFunction = function(){setInterval(function(){
+//   if(counter>5){
+//     return 
+//   }
+//   console.log(today.format('YYYY, DD, MM'), "hit")
+//   dayCommit(today)
+//   counter++
+// }, 1000);
+// }
 
 
 module.exports = app;
